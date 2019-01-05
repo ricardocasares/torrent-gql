@@ -29,13 +29,17 @@ Check the [playground](https://torrent-gql.analogic.al)
 
 ## Running the docker image
 
-### Build
+```bash
+> docker run -p 3000:3000 ricardocasares/torrent-gql
+```
+
+### Build from scratch
+
+Clone the repository and inside the root folder run:
 
 ```bash
 > docker build . -t torrent-gql
 ```
-
-### Run
 
 ```bash
 > docker run -p 3000:3000 torrent-gql
