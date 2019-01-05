@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "name": "analogic.al",
+  "type": "docker",
+  "features": {
+    "cloud": "v2"
+  },
+  "alias": ["torrent-gql.analogic.al"]
+}
