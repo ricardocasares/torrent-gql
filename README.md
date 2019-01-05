@@ -1,5 +1,7 @@
 # Torrent search GraphQL api
 
+[![Build Status](https://travis-ci.com/ricardocasares/torrent-gql.svg?branch=master)](https://travis-ci.com/ricardocasares/torrent-gql)
+
 Check the [playground](https://torrent-gql.analogic.al)
 
 ## Sample query
