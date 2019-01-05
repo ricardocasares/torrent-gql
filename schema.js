@@ -3,7 +3,8 @@ const {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList
+  GraphQLList,
+  GraphQLNonNull
 } = require("graphql");
 
 const TorrentType = new GraphQLObjectType({
@@ -40,8 +41,8 @@ const schema = new GraphQLSchema({
       torrents: {
         type: new GraphQLList(TorrentType),
         args: {
-          query: { type: GraphQLString },
-          provider: { type: GraphQLString }
+          query: { type: new GraphQLNonNull(GraphQLString) },
+          provider: { type: new GraphQLNonNull(GraphQLString) }
         },
         resolve: async (root, { query, provider }) => {
           TorrentSearch.enableProvider(provider);
