@@ -45,4 +45,4 @@ You can now visit the playground at [http://localhost:3000](http://localhost:300
 
 ## Contributing
 
-Feel free to open am issue, pull request are preferred.
+Feel free to open an issue, pull request are preferred.
