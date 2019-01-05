@@ -6,6 +6,9 @@ cache:
     - "node_modules"
 install:
   - yarn
+script:
+  - node -v
+  - yarn -v
 deploy:
   - provider: script
     skip_cleanup: true
