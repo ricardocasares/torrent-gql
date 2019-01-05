@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/ricardocasares/torrent-gql.svg?branch=master)](https://travis-ci.com/ricardocasares/torrent-gql)
+![Docker Pulls](https://img.shields.io/docker/pulls/ricardocasares/torrent-gql.svg)
 
 # Torrent search GraphQL api
 
