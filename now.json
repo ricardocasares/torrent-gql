@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "name": "analogic.al",
+  "name": "torrent-gql",
   "type": "docker",
   "features": {
     "cloud": "v2"
