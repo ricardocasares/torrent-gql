@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:latest AS build
 WORKDIR /app
-ADD package.json yarn.lock /app/
-RUN yarn
+ADD package*.lock /app/
+RUN npm ci
 
 FROM mhart/alpine-node:base
 COPY --from=build /app .

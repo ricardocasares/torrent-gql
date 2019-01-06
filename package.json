@@ -4,7 +4,12 @@
   "description": "Torrent search GraphQL api",
   "main": "index.js",
   "scripts": {
-    "release": "npx semantic-release"
+    "release": "npx semantic-release",
+    "alias": "npx now alias --token $NOW_TOKEN",
+    "deploy": "npx now --token $NOW_TOKEN",
+    "deploy:prod": "npx npm-run-all -s deploy alias",
+    "deploy:dev": "npx npm-run-all -s deploy alias:dev",
+    "alias:dev": "npx now alias dev-torrent-gql.analogic.al --token $NOW_TOKEN"
   },
   "release": {
     "plugins": [

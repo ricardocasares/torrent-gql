@@ -12,24 +12,20 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npx semantic-release
+    script: npm run release
     on:
       branch: master
   - provider: script
-    script: npx now --token $NOW_TOKEN
-    skip_cleanup: true
-    on:
-      master: false
-      all_branches: true
-  - provider: script
-    script: npx now --token $NOW_TOKEN && npx now alias dev-torrent-gql.analogic.al --token $NOW_TOKEN
-    skip_cleanup: true
-    on:
-      branch: development
-  - provider: script
-    script: npx now --token $NOW_TOKEN && npx now alias --token $NOW_TOKEN
+    script: npm run deploy:prod
     skip_cleanup: true
     on:
       branch: master
+  - provider: script
+    script: npm run deploy:dev
+    skip_cleanup: true
+    on:
+      branch: develop
 notifications:
-  email: false
+  email:
+    on_success: change
+    on_failure: change
