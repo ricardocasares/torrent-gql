@@ -17,27 +17,19 @@ script:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: npm run release
+    script:
+      - npm run release
+      - npm run deploy:prod
     on:
       branch: master
 
   - provider: script
     skip_cleanup: true
-    script: npm run release
+    script:
+      - npm run release
+      - npm run deploy:dev
     on:
       branch: beta
-
-  - provider: script
-    script: npm run deploy:dev
-    skip_cleanup: true
-    on:
-      branch: beta
-
-  - provider: script
-    script: npm run deploy:prod
-    skip_cleanup: true
-    on:
-      branch: master
 
 notifications:
   email:
