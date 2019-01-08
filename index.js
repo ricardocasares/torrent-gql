@@ -2,8 +2,7 @@ const cors = require("cors");
 const polka = require("polka");
 const graphql = require("express-graphql");
 const schema = require("./schema");
-
-polka()
+const server = polka()
   .use(cors())
   .use(
     "/",
@@ -11,5 +10,6 @@ polka()
       schema,
       graphiql: true
     })
-  )
-  .listen(3000);
+  );
+
+module.exports = server;
