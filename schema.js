@@ -1,4 +1,4 @@
-const TorrentSearch = require("torrent-search-api");
+const torrentApi = require("torrent-search-api");
 const {
   GraphQLSchema,
   GraphQLObjectType,
@@ -28,7 +28,7 @@ const TorrentType = new GraphQLObjectType({
     },
     magnet: {
       type: GraphQLString,
-      resolve: async data => TorrentSearch.getMagnet(data)
+      resolve: async data => torrentApi.getMagnet(data)
     }
   })
 });
@@ -45,9 +45,8 @@ const schema = new GraphQLSchema({
           provider: { type: new GraphQLNonNull(GraphQLString) }
         },
         resolve: async (root, { query, provider }) => {
-          TorrentSearch.enableProvider(provider);
-
-          return TorrentSearch.search(query);
+          torrentApi.enableProvider(provider);
+          return torrentApi.search(query);
         }
       }
     })
