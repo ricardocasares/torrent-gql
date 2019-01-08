@@ -57,7 +57,7 @@ You can now visit the playground at [http://localhost:3000](http://localhost:300
 
 Feel free to open an issue, pull requests are preferred.
 
-**IMPORTANT** Make sure you always create new branches from `next`.
+**IMPORTANT** Make sure you always create new branches from `beta`.
 
 ### Automated versioning
 
