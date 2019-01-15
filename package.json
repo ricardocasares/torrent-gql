@@ -7,8 +7,13 @@
   "license": "MIT",
   "repository": "github:ricardocasares/torrent-gql",
   "bin": {
-    "torrent-gql": "index.js"
+    "torrent-gql": "bin.js"
   },
+  "files": [
+    "bin.js",
+    "index.js",
+    "schema.js"
+  ],
   "scripts": {
     "format": "npx prettier --write **/*.{js,md,yml,json}",
     "release": "npx semantic-release@beta",
