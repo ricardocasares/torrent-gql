@@ -2371,8 +2371,8 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
 
 torrent-search-api@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/torrent-search-api/-/torrent-search-api-2.0.4.tgz#4b33f9950b5324d1efd6d99b0eb63c46f6fea444"
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/torrent-search-api/-/torrent-search-api-2.0.5.tgz#2ff5f649505be844543b77048ef34e7b9aa42d0a"
   dependencies:
     bluebird "^3.4.7"
     cloudscraper "^1.5.0"
