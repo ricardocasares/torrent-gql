@@ -2365,8 +2365,8 @@ toposort@^2.0.2:
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
 
 torrent-search-api@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/torrent-search-api/-/torrent-search-api-2.0.4.tgz#4b33f9950b5324d1efd6d99b0eb63c46f6fea444"
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/torrent-search-api/-/torrent-search-api-2.0.5.tgz#2ff5f649505be844543b77048ef34e7b9aa42d0a"
   dependencies:
     bluebird "^3.4.7"
     cloudscraper "^1.5.0"
