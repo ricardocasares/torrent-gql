@@ -76,7 +76,11 @@ Once its merged, you can try and install the package using `@beta` dist tag on `
 npm i -g torrent-gql@beta
 ```
 
+After a successful build you'll be able to test the playground in [https://dev-torrent-gql.analogic.al](https://dev-torrent-gql.analogic.al)
+
 #### Production
 
 Create a new pull-request from `beta` to `master` branch.
 Once it gets merged, the final version will be released using `@latest` dist tag on `npm`.
+
+After a successful build you'll be able your changes in [https://torrent-gql.analogic.al](https://torrent-gql.analogic.al)
