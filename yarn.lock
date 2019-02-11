@@ -1824,8 +1824,8 @@ please-upgrade-node@^3.0.2, please-upgrade-node@^3.1.1:
     semver-compare "^1.0.0"
 
 polka@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/polka/-/polka-0.5.1.tgz#989a45b89a2ab9e3618f54b5720f37946a923891"
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/polka/-/polka-0.5.2.tgz#588bee0c5806dbc6c64958de3a1251860e9f2e26"
   dependencies:
     "@polka/url" "^0.5.0"
     trouter "^2.0.1"
