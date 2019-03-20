@@ -1,9 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "torrent-gql",
-  "type": "docker",
-  "features": {
-    "cloud": "v2"
-  },
+  "builds": [{ "src": "server.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/", "dest": "server.js" }],
   "alias": ["torrent-gql.analogic.al"]
 }
