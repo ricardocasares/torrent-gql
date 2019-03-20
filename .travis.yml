@@ -27,18 +27,6 @@ deploy:
     on:
       branch: beta
 
-  - provider: script
-    script: npm run deploy:dev
-    skip_cleanup: true
-    on:
-      branch: beta
-
-  - provider: script
-    script: npm run deploy:prod
-    skip_cleanup: true
-    on:
-      branch: master
-
 notifications:
   email:
     on_success: never

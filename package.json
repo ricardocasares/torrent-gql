@@ -16,12 +16,7 @@
   ],
   "scripts": {
     "format": "npx prettier --write **/*.{js,md,yml,json}",
-    "release": "npx semantic-release@beta",
-    "alias": "npx now alias --token $NOW_TOKEN",
-    "deploy": "npx now --token $NOW_TOKEN",
-    "deploy:prod": "npx npm-run-all -s deploy alias",
-    "deploy:dev": "npx npm-run-all -s deploy alias:dev",
-    "alias:dev": "npx now alias dev-torrent-gql.analogic.al --token $NOW_TOKEN"
+    "release": "npx semantic-release@beta"
   },
   "dependencies": {
     "cors": "^2.8.5",
