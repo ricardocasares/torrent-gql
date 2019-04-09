@@ -1,5 +1,6 @@
 const torrentApi = require("torrent-search-api");
 const {
+  GraphQLInt,
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
@@ -36,10 +37,12 @@ const TorrentType = new GraphQLObjectType({
       type: GraphQLString
     },
     seeds: {
-      type: GraphQLString
+      type: GraphQLInt,
+      resolve: ({ seeds = 0 }) => Number(seeds)
     },
     peers: {
-      type: GraphQLString
+      type: GraphQLInt,
+      resolve: ({ peers = 0 }) => Number(peers)
     },
     magnet: {
       type: GraphQLString,
