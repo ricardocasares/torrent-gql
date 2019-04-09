@@ -1,11 +1,27 @@
 const torrentApi = require("torrent-search-api");
 const {
+  GraphQLInt,
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
   GraphQLList,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLEnumType
 } = require("graphql");
+
+var ProviderType = new GraphQLEnumType({
+  name: "Provider",
+  values: {
+    LEETX: { value: "1337x" },
+    TORRENT9: { value: "Torrent9" },
+    EXTRATORRENT: { value: "ExtraTorrent" },
+    KICKASS: { value: "KickassTorrents" },
+    RARBG: { value: "Rarbg" },
+    PIRATEBAY: { value: "ThePirateBay" },
+    TORRENTPROJECT: { value: "TorrentProject" },
+    TORRENTZ2: { value: "Torrentz2" }
+  }
+});
 
 const TorrentType = new GraphQLObjectType({
   name: "Torrent",
@@ -21,10 +37,12 @@ const TorrentType = new GraphQLObjectType({
       type: GraphQLString
     },
     seeds: {
-      type: GraphQLString
+      type: GraphQLInt,
+      resolve: ({ seeds = 0 }) => Number(seeds)
     },
     peers: {
-      type: GraphQLString
+      type: GraphQLInt,
+      resolve: ({ peers = 0 }) => Number(peers)
     },
     magnet: {
       type: GraphQLString,
@@ -42,10 +60,19 @@ const schema = new GraphQLSchema({
         type: new GraphQLList(TorrentType),
         args: {
           query: { type: new GraphQLNonNull(GraphQLString) },
-          provider: { type: new GraphQLNonNull(GraphQLString) }
+          providers: { type: new GraphQLNonNull(new GraphQLList(ProviderType)) }
         },
-        resolve: async (root, { query, provider }) => {
-          torrentApi.enableProvider(provider);
+        resolve: async (root, { query, providers = [] }) => {
+          if (!providers.length) {
+            throw new Error("You need to select at least one provider.");
+          }
+
+          torrentApi.disableAllProviders();
+
+          for (let provider of providers) {
+            torrentApi.enableProvider(provider);
+          }
+
           return torrentApi.search(query);
         }
       }
