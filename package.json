@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express-graphql": "^0.7.1",
+    "express-graphql": "^0.8.0",
     "graphql": "^14.0.2",
     "polka": "^0.5.1",
     "torrent-search-api": "^2.0.4"
