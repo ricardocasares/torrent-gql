@@ -19,7 +19,7 @@ jobs:
           method: "POST"
           data: |
             {
-              "query": "query GetTorrents { torrents(query: \"sintel 2010\", providers: [PROVIDER_LIMETORRENTS]) { title size peers seeds }}"
+              "query": "query GetTorrents { torrents(query: \"sintel 2010\", providers: [PROVIDER_LIMETORRENTS]) { title seeds peers }}"
             }
       - name: Show Response
         run: echo ${{ steps.gqlRequest.outputs.response }}
