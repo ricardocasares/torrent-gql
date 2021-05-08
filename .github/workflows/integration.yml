@@ -11,23 +11,19 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
-      - name: Integration test
+      - name: Make GraphQL request
+        id: gqlRequest
         uses: fjogeleit/http-request-action@master
         with:
-          url: ${{ github.event.deployment_status.target_url }}/graphql
+          url: ${{ github.event.deployment_status.target_url }}
           method: "POST"
-          data: |-
+          data: |
             {
-              query: 'query getMagnets {
-                torrents(query: "fight", providers: [EXTRATORRENT]) { 
-                  title
-                  size
-                  peers
-                  seeds
-                  magnet
-                }
-              }'
+              "query": "query GetTorrents { torrents(query: \"sintel\", providers: [EXTRATORRENT]) { title size peers seeds }}"
             }
+      - name: Show Response
+        run: echo ${{ steps.gqlRequest.outputs.response }}
+
       - name: Integration tests passed
         if: ${{ success() }}
 
@@ -37,7 +33,7 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           --data '{
-            "context": "node-${{ matrix.node }} ${{ matrix.browser }} ${{ matrix.os }}",
+            "context": "integration-tests",
             "state": "success",
             "description": "Integration tests passed",
             "target_url": "'"$GITHUB_SERVER_URL"'/'"$GITHUB_REPOSITORY"'/actions/runs/'"$GITHUB_RUN_ID"'"
@@ -50,7 +46,7 @@ jobs:
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'content-type: application/json' \
           --data '{
-            "context": "node-${{ matrix.node }} ${{ matrix.browser }} ${{ matrix.os }}",
+            "context": "integration-tests",
             "state": "failure",
             "description": "Integration tests failed",
             "target_url": "'"$GITHUB_SERVER_URL"'/'"$GITHUB_REPOSITORY"'/actions/runs/'"$GITHUB_RUN_ID"'"
