@@ -1,6 +1,7 @@
 {
   "name": "torrent-gql",
   "version": "0.0.1",
+  "private": true,
   "main": "index.js",
   "description": "Torrent search GraphQL api",
   "author": "Ricardo Casares",
@@ -15,8 +16,7 @@
     "schema.js"
   ],
   "scripts": {
-    "format": "npx prettier --write **/*.{js,md,yml,json}",
-    "release": "npx semantic-release@beta"
+    "format": "npx prettier --write **/*.{js,md,yml,json}"
   },
   "dependencies": {
     "cors": "^2.8.5",
