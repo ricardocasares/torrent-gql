@@ -11,16 +11,10 @@ const {
 
 var ProviderType = new GraphQLEnumType({
   name: "Provider",
-  values: {
-    LEETX: { value: "1337x" },
-    TORRENT9: { value: "Torrent9" },
-    EXTRATORRENT: { value: "ExtraTorrent" },
-    KICKASS: { value: "KickassTorrents" },
-    RARBG: { value: "Rarbg" },
-    PIRATEBAY: { value: "ThePirateBay" },
-    TORRENTPROJECT: { value: "TorrentProject" },
-    TORRENTZ2: { value: "Torrentz2" }
-  }
+  values: torrentApi.getProviders().filter(({ public }) => public).reduce((acc, { name }) => {
+    acc[`PROVIDER_${name.toLocaleUpperCase()}`] = { value: name };
+    return acc;
+  }, {})
 });
 
 const TorrentType = new GraphQLObjectType({
@@ -62,7 +56,7 @@ const schema = new GraphQLSchema({
           query: { type: new GraphQLNonNull(GraphQLString) },
           providers: { type: new GraphQLNonNull(new GraphQLList(ProviderType)) }
         },
-        resolve: async (root, { query, providers = [] }) => {
+        resolve: async (_, { query, providers = [] }) => {
           if (!providers.length) {
             throw new Error("You need to select at least one provider.");
           }
