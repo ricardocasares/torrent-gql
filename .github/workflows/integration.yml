@@ -1,0 +1,30 @@
+name: Integration tests
+
+on: [deployment_status]
+
+jobs:
+  build:
+    if: github.event.deployment_status.state == 'success'
+    name: query-for-torrents
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - name: Integration test
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: ${{ github.event.deployment_status.target_url }}
+          method: "POST"
+          data: |-
+            {
+              query: 'query getMagnets {
+                torrents(query: "fight", providers: [EXTRATORRENT]) { 
+                  title
+                  size
+                  peers
+                  seeds
+                  magnet
+                }
+              }'
+            }
