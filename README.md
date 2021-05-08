@@ -10,7 +10,7 @@ Check the [playground](https://tgql.analogic.al)
 
 ```gql
 {
-  torrents(query: "sintel", providers: [EXTRATORRENT]) {
+  torrents(query: "sintel", providers: [PROVIDER_LIMETORRENTS]) {
     size
     seeds
     peers
