@@ -1,18 +1,16 @@
-[![Build Status](https://travis-ci.com/ricardocasares/torrent-gql.svg?branch=master)](https://travis-ci.com/ricardocasares/torrent-gql)
-![Docker Pulls](https://img.shields.io/docker/pulls/ricardocasares/torrent-gql.svg)
+[![Integration tests](https://github.com/ricardocasares/torrent-gql/actions/workflows/integration.yml/badge.svg)](https://github.com/ricardocasares/torrent-gql/actions/workflows/integration.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ricardocasares/torrent-gql.svg)](https://hub.docker.com/r/ricardocasares/torrent-gql)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 # Torrent search GraphQL API
 
-Check the [playground](https://torrent-gql.analogic.al)
-
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ricardocasares/torrent-gql)
+Check the [playground](https://tgql.analogic.al)
 
 ## Sample query
 
 ```gql
 {
-  torrents(query: "sintel", provider: "1337x") {
+  torrents(query: "sintel", providers: [EXTRATORRENT]) {
     size
     seeds
     peers
@@ -23,7 +21,7 @@ Check the [playground](https://torrent-gql.analogic.al)
 
 ## Stack
 
-- ▲ [now](https://now.sh)
+- ▲ [vercel](https://vercel.com)
 - docker
 - [polka](https://github.com/lukeed/polka)
 - [express-graphql](https://github.com/graphql/express-graphql)
